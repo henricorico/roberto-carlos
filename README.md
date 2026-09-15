@@ -58,3 +58,45 @@ $$h_2 = \frac{0.15}{2 \times 0.000344} \cdot \ln\left(1 + \frac{0.000344 \times 
   TEMPO ATÉ O APOGEU:     5.1 segundos
   VELOCIDADE MÁXIMA:      58.0 m/s  (208.8 km/h)
 =====================================================
+
+## 🪂 4. Dimensionamento do Paraquedas e Sistema de Liberação
+
+Para garantir uma taxa de descida segura de $v_{descida} = 5\text{ m/s}$ para a massa seca ($m_s = 0.15\text{ kg}$):
+
+### Tamanho do Paraquedas (Velame Parabólico)
+$$A = \frac{2 \cdot m_s \cdot g}{\rho \cdot C_d \cdot v^2} = \frac{2 \cdot 0.15 \cdot 9.81}{1.225 \cdot 1.5 \cdot 5^2} \approx 0.064\text{ m}^2$$
+
+$$\text{Diâmetro Requerido } (D) = \sqrt{\frac{4 \cdot A}{\pi}} \approx \mathbf{28.5\text{ cm}}$$
+
+### Mecanismo de Ejeção / Cronograma
+* **Timing Ideal de Ejeção:** O acionamento do sistema de ejeção deve ser sincronizado para o **apogeu ($t \approx 5.1\text{ s}$)**, e não imediatamente no fim da queima ($t = 1.5\text{ s}$). Abrir a $58\text{ m/s}$ destruiria o velame por estresse mecânico.
+* **Sistema de Carga de Atraso (*Delay Charge*):** Utiliza-se uma espoleta de queima lenta de $3.5\text{ segundos}$ integrada ao motor. Ela aciona uma micro-carga de pólvora negra após o fim da propulsão, gerando sobrepressão interna para desacoplar a coifa e liberar o paraquedas no ponto de menor velocidade.
+
+---
+
+## 🛑 5. Limites Críticos de Operação (Segurança Estrutural)
+
+Para evitar colapso estrutural, deformação por calor ou desvios críticos de trajetória:
+
+| Parâmetro Operacional | Limite Máximo | Consequência ao Exceder |
+| :--- | :---: | :--- |
+| **Carga Útil Máxima (*Payload*)** | `108 g` | Aceleração inicial $< 3g$; instabilidade no trilho de lançamento. |
+| **Velocidade do Vento no Dia** | `20 km/h` | *Weathercocking* severo (o foguete tomba contra o vento na subida). |
+| **Temperatura da Câmara de Combustão** | `1050 °C` | Derretimento de paredes em PVC/plástico. Exige revestimento térmico. |
+| **Temperatura Externa do Tubo** | `60 °C` | Perda de rigidez estrutural da fuselagem de papelão/resina. |
+| **Carga de Tração no Cordão de Choque** | `15 kgf` | Ruptura do cordão e separação definitiva da coifa. |
+
+---
+
+## 🔥 6. Perfil Térmico por Componente
+
+| Componente | Temp. Média | Temp. Pico | Origem do Calor |
+| :--- | :---: | :---: | :--- |
+| **Câmara de Combustão** | $850\text{ }^\circ\text{C}$ | $1050\text{ }^\circ\text{C}$ | Reação química do propelente |
+| **Bocal / Tubeira** | $600\text{ }^\circ\text{C}$ | $850\text{ }^\circ\text{C}$ | Expansão de gases em alta velocidade |
+| **Corpo Inferior (Fuselagem)** | $80\text{ }^\circ\text{C}$ | $140\text{ }^\circ\text{C}$ | Condução térmica interna |
+| **Coifa / Ponta** | $32\text{ }^\circ\text{C}$ | $45\text{ }^\circ\text{C}$ | Atrito aerodinâmico |
+
+---
+
+> ⚠️ **Nota de Engenharia:** Respeite a janela meteorológica de lançamento (vento $< 15\text{ km/h}$) e certifique-se de usar anéis centradores para isolar a câmara de combustão do restante da estrutura.
